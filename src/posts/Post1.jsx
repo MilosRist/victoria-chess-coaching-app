@@ -28,14 +28,15 @@ import practiceproblem5 from '../assets/practiceproblem5.png'
 import queenstalemate from '../assets/queenstalemate.png'
 import pawnstalemate from '../assets/pawnstalemate.png'
 import perpetualcheck from '../assets/perpetualcheck.png'
+import chessnotation from '../assets/chess-notation.jpg'
 
 const Post1 = () => {
     const answerkey = [
-        {id: 0, answer: "e8", image: practiceproblem1, text: "1. White to move. Mate in 1"},
-        {id: 1, answer: 'yes', image: practiceproblem2, text: "2. Can white castle?"},
-        {id: 2, answer: 'no', image: practiceproblem3, text: "3. Can white castle?"},
-        {id: 3, answer: 'no', image: practiceproblem4, text: "4. Can white deliver mate?"},
-        {id: 4, answer: 'yes', image: practiceproblem5, text: "5. Can white deliver mate?"}
+        {id: 0, answer: ["e8"], opponent: [""], image: practiceproblem1, text: "1. White to move. Mate in 1"},
+        {id: 1, answer: ['yes'], opponent: [""], image: practiceproblem2, text: "2. Can white castle?"},
+        {id: 2, answer: ['no'], opponent: [""], image: practiceproblem3, text: "3. Can white castle?"},
+        {id: 3, answer: ['no'], opponent: [""], image: practiceproblem4, text: "4. Can white deliver mate?"},
+        {id: 4, answer: ['yes'], opponent: [""], image: practiceproblem5, text: "5. Can white deliver mate?"}
     ]
 
     const userInput = ''
@@ -186,6 +187,12 @@ const Post1 = () => {
                 <p>The answer involves three main factors, the first of which is that you can actually deliver mate with just a king and a rook! This can be a difficult mating pattern for beginners so you do not need to worry about it too much right now but we will go over it eventually. The next factor is that, as mentioned earlier, each bishop is confined to a single square colour for the entire game. In certain situations, this can severely limit the effectiveness of the bishop and it is common to tactically place your piece to limit the effectiveness if the bishop. Finally, the rook can block off entire files on its own which can block of a major portion of the board for the enemy’s king, and can prove particularly useful when trying to promote a pawn.</p>
                 <br></br>
                 <p>Finally, the queen is worth by far the most with a value of “9”. This is because the queen is the most versatile piece and is incredibly powerful for threatening mate to your opponent.</p>
+                <br></br>
+                <h2 className="text-3xl font-mono">Chess Notation</h2>
+                <br></br>
+                <p></p>
+                <br></br>
+                <img src={chessnotation} />
                 <br></br>
                 <h2 className="text-3xl font-mono">Practice Problems</h2>
                 <br></br>

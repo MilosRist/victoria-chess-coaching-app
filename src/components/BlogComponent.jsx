@@ -18,7 +18,20 @@ const posts = [
           '',
       },
     },
-    // More posts...
+    {
+      id: 2,
+      title: 'Problem Set 1: Problems for Beginners',
+      href: '/problemset1',
+      description: 'Try practice problems based on fundemental tactics and mating patterns for beginners',
+      category: { title: 'Beginner', href: '#' },
+      author: {
+        name: 'Milos Ristovic',
+        role: 'Owner',
+        href: '#',
+        imageUrl:
+          '',
+      },
+    }
   ]
 
   const BlogComponent = () => {
