@@ -30,24 +30,24 @@ import set5problem8 from '../assets/problemset1/set5problem8.png'
 
 const ProblemSet1 = () => {
     const answerkey = [
-        {id: 0, answer: ["qg7"], opponent: [""], image: set1problem1, text: "1. White to move. Mate in 1"},
-        {id: 1, answer: ["rb8"], opponent: [""], image: set1problem2, text: "2. White to move. Mate in 1"},
-        {id: 2, answer: ["rh5"], opponent: [""], image: set1problem3, text: "4. White to move. Mate in 1"},
-        {id: 3, answer: ["qxh7"], opponent: [""], image: set1problem4, text: "5. White to move. Mate in 1 (don't forget to include an 'x' for capturing!)"},
-        {id: 4, answer: ["qxd7"], opponent: [""], image: set1problem5, text: "6. White to move. Mate in 1"},
-        {id: 5, answer: ["bg4"], opponent: [""], image: set1problem6, text: "7. Black to move. Mate in 1"},
-        {id: 6, answer: ["rg7"], opponent: [""], image: set1problem7, text: "8. White to move. Mate in 1"},
-        {id: 7, answer: ["e4"], opponent: [""], image: set1problem8, text: "9. White to move. Mate in 1"},
-        {id: 8, answer: ["rb8"], opponent: [""], image: set1problem9, text: "3. White to move. Mate in 1"},
-        {id: 9, answer: ["qd4"], opponent: [""], image: set1problem10, text: "10. White to move. Mate in 1"},
-        {id: 10, answer: ["qh8"], opponent: [""], image: set1problem11, text: "11. White to move. Mate in 1"},
-        {id: 11, answer: ["rc1"], opponent: [""], image: set1problem12, text: "12. Black to move. Mate in 1"},
-        {id: 12, answer: ["rxh4"], opponent: [""], image: set1problem13, text: "13. Black to move. Mate in 1"},
-        {id: 13, answer: ["qe7"], opponent: [""], image: set1problem14, text: "14. Black to move. Mate in 1"},
-        {id: 14, answer: ["re7"], opponent: [""], image: set1problem15, text: "15. White to move. Mate in 1"},
-        {id: 15, answer: ["qe2"], opponent: [""], image: set1problem16, text: "16. Black to move. Mate in 1"},
-        {id: 16, answer: ["g7"], opponent: [""], image: set1problem17, text: "17. White to move. Mate in 1"},
-        {id: 17, answer: ["nxe6"], opponent: [""], image: set1problem18, text: "18. White to move. Mate in 1"},
+        {id: 0, answer: ["qg7#"], opponent: [""], image: set1problem1, text: "1. White to move. Mate in 1"},
+        {id: 1, answer: ["rb8#"], opponent: [""], image: set1problem2, text: "2. White to move. Mate in 1"},
+        {id: 2, answer: ["rh5#"], opponent: [""], image: set1problem3, text: "4. White to move. Mate in 1"},
+        {id: 3, answer: ["qxh7#"], opponent: [""], image: set1problem4, text: "5. White to move. Mate in 1 (don't forget to include an 'x' for capturing!)"},
+        {id: 4, answer: ["qxd7#"], opponent: [""], image: set1problem5, text: "6. White to move. Mate in 1"},
+        {id: 5, answer: ["bg4#"], opponent: [""], image: set1problem6, text: "7. Black to move. Mate in 1"},
+        {id: 6, answer: ["rg7#"], opponent: [""], image: set1problem7, text: "8. White to move. Mate in 1"},
+        {id: 7, answer: ["e4#"], opponent: [""], image: set1problem8, text: "9. White to move. Mate in 1"},
+        {id: 8, answer: ["rb8#"], opponent: [""], image: set1problem9, text: "3. White to move. Mate in 1"},
+        {id: 9, answer: ["qd4#"], opponent: [""], image: set1problem10, text: "10. White to move. Mate in 1"},
+        {id: 10, answer: ["qh8#"], opponent: [""], image: set1problem11, text: "11. White to move. Mate in 1"},
+        {id: 11, answer: ["rc1#"], opponent: [""], image: set1problem12, text: "12. Black to move. Mate in 1"},
+        {id: 12, answer: ["rxh4#"], opponent: [""], image: set1problem13, text: "13. Black to move. Mate in 1"},
+        {id: 13, answer: ["qe7#"], opponent: [""], image: set1problem14, text: "14. Black to move. Mate in 1"},
+        {id: 14, answer: ["re7#"], opponent: [""], image: set1problem15, text: "15. White to move. Mate in 1"},
+        {id: 15, answer: ["qe2#"], opponent: [""], image: set1problem16, text: "16. Black to move. Mate in 1"},
+        {id: 16, answer: ["g7#"], opponent: [""], image: set1problem17, text: "17. White to move. Mate in 1"},
+        {id: 17, answer: ["nxe6#"], opponent: [""], image: set1problem18, text: "18. White to move. Mate in 1"},
         {id: 18, answer: ["ne5+", "nxd7"], opponent: ["Ke7"], image: set5problem1, text: "White to move and win material in 2", game:"Evans, William Davies – Saint Amant, Pierre Charles Four (London 1839)"},
         {id: 19, answer: ["ne4+", "nxc5"], opponent: ["Kxg7"], image: set5problem2, text: "White to move and win material in 2", game: "Boncourt – Zekeriski (Paris 1839)"},
         {id: 20, answer: ["be6+", "bxg4"], opponent: ["Kb8"], image: set5problem3, text: "White to move and win material in 2", game: "Von Heydebrand und der Lasa, Tassilo – Mayet, Carl (Berlin 1837)"},
@@ -67,7 +67,7 @@ const ProblemSet1 = () => {
                 <div className="lg:w-1/2 block mr-auto ml-auto mt-40 text-lg w-4/5">
                     <h1 className="text-4xl font-mono">Problem Set 1: Problems for Beginners</h1>
                     <br></br>
-                    <p>The following problems are designed to help beginners get a basic understanding of common mating patterns and tactics. To do these problems, you need to understand chess notation for which you can find a description in lesson 1. Here is an example as a reminder though, if you move the queen to an empty square on e5 you would write 'Qe5'. If the queen is capturing on e5 you would write 'Qxe5'.</p>
+                    <p>The following problems are designed to help beginners get a basic understanding of common mating patterns and tactics. To do these problems, you need to understand chess notation for which you can find a description in lesson 1. Here is an example as a reminder though, if you move the queen to an empty square on e5 you would write 'Qe5'. If the queen is capturing on e5 you would write 'Qxe5'. If the queen delivers check it would be Qe5+ and if the queen delivers mate it would be Qe5#. For the practice problems, don't forget to add a '#' for cehckmate and a '+' for delivering check! This means for every mate in 1 problem for example your answer should have a '#' at the end.</p>
                     <br></br>
                     <h2 className="text-3xl font-mono">Mate in 1</h2>
                     <br></br>

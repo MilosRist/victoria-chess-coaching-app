@@ -32,11 +32,11 @@ import chessnotation from '../assets/chess-notation.jpg'
 
 const Post1 = () => {
     const answerkey = [
-        {id: 0, answer: ["e8"], opponent: [""], image: practiceproblem1, text: "1. White to move. Mate in 1"},
-        {id: 1, answer: ['yes'], opponent: [""], image: practiceproblem2, text: "2. Can white castle?"},
-        {id: 2, answer: ['no'], opponent: [""], image: practiceproblem3, text: "3. Can white castle?"},
-        {id: 3, answer: ['no'], opponent: [""], image: practiceproblem4, text: "4. Can white deliver mate?"},
-        {id: 4, answer: ['yes'], opponent: [""], image: practiceproblem5, text: "5. Can white deliver mate?"}
+        {id: 0, answer: ["re8#"], opponent: [""], image: practiceproblem1, text: "1. White to move. Mate in 1"},
+        {id: 1, answer: ['y'], opponent: [""], image: practiceproblem2, text: "2. Can white castle? (y or n)"},
+        {id: 2, answer: ['n'], opponent: [""], image: practiceproblem3, text: "3. Can white castle? (y or n)"},
+        {id: 3, answer: ['n'], opponent: [""], image: practiceproblem4, text: "4. Can white deliver mate? (y or n)"},
+        {id: 4, answer: ['y'], opponent: [""], image: practiceproblem5, text: "5. Can white deliver mate? (y or n)"}
     ]
 
     const userInput = ''
@@ -190,9 +190,9 @@ const Post1 = () => {
                 <br></br>
                 <h2 className="text-3xl font-mono">Chess Notation</h2>
                 <br></br>
-                <p></p>
-                <br></br>
                 <img src={chessnotation} />
+                <br></br>
+                <p>It is useful to know chess notation if you are planning on ever reading a chess book or playing in a tournament. You will also need to understand chess notation to solve the problems in this app. Luckily, it is very simple! As you can see in the image above, there are 8 files labeled from a to h and 8 ranks labeled from 1 to 8. Logically, the squares go from a1 to h8.<br></br><br></br>There are a couple of more things you need to know aside from this simple layout. The first is that you add a capitalized letter corresponding to the piece you are moving in front of the square you are moving it to. These letters are N for the knight, B for the bishop, R for the rook, Q for the queen, and K for the king. For pawns you simply do not add any letter so if you move a pawn to e4 you just write 'e4'. If you move you knight to e4 though you would write Ne4.<br></br><br></br>There is also specific notations for when you capture, give check, or give checkmate. When you capture a piece you add an 'x' between the piece label and square. So, if the knight captures a piece of e4 you would write 'Nxe4'. For pawns this is a little bit different, since they do not have a piece label you add the file that the pawn was on before capturing in front of the move. For example, if the pawn on e4 captures the pawn on d5 you would write exd4 (notice that the file is always lowercase). Finally, for check and checkmate you simply add a '+' or '#' respectively to the end of the move. So, if the bishop delivers check on d6 you would write 'Bd6+' or if the queen delivers checkmate on g7 you would write Qg7#.</p>
                 <br></br>
                 <h2 className="text-3xl font-mono">Practice Problems</h2>
                 <br></br>

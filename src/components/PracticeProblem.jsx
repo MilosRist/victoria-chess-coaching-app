@@ -6,6 +6,7 @@ const PracticeProblem = (props) => {
     const answers = props.answerkey[props.id].answer
     const[inputs, setInputs] = useState(Array(answers.length).fill(""))
     const opponents = props.answerkey[props.id].opponent
+    const[revealAnswer, setRevealAnswer] = useState('')
 
     const handleInputChange = (index, event) => {
         event.preventDefault()
@@ -17,6 +18,7 @@ const PracticeProblem = (props) => {
 
     const addAnswer = (event) => {
         event.preventDefault()
+        setRevealAnswer('')
         const newInputs = [...inputs]
         console.log(newInputs)
         const answers = props.answerkey[props.id].answer
@@ -33,6 +35,13 @@ const PracticeProblem = (props) => {
                 }
             }
     }
+
+     const showAnswer = (event) => {
+        event.preventDefault()
+        const answer = props.answerkey[props.id].answer
+        setRevealAnswer(answer)
+        return(revealAnswer)
+    } 
 
     return (
         <div className="flex mb-10" >
@@ -62,7 +71,11 @@ const PracticeProblem = (props) => {
                         <button type="submit" className="bg-gray-100 hover:bg-gray-200 border border-gray-700 p-2 mb-5 rounded-lg" >CHECK</button>
                     </div>
                 </form>
+                <form onSubmit={showAnswer}>            
+                    <button type="submit" className="bg-gray-100 hover:bg-gray-200 border border-gray-700 p-2 mb-5 rounded-lg text-sm" >ANSWER</button>
+                </form>
                 <p className='font-mono'>{response}</p>
+                <p className='font-mono'>{revealAnswer}</p>
             </div>
         </div>
     )
