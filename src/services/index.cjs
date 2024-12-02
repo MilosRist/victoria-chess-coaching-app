@@ -37,6 +37,6 @@ app.get('/api/answers', async (req, res) => {
 });
 
 const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+app.listen(process.env.PORT || 3001, '0.0.0.0', () => {
+    console.log(`Server running on port ${process.env.PORT || 3001}`);
 });

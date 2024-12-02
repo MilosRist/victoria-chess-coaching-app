@@ -8,7 +8,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "server": "json-server -p3001 --watch db.json"
+    "server": "json-server -p3001 --watch db.json",
+    "start": "node index.cjs"
   },
   "dependencies": {
     "@headlessui/react": "^2.1.10",
