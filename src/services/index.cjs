@@ -1,10 +1,12 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const baseUrl = '/api/answers'
 
 const app = express();
 app.use(cors()); // Allows cross-origin requests
 app.use(express.json());
+app.use(express.static('dist'))
 
 const password = process.env.DB_PASSWORD || 'Misa862124';
 const url = `mongodb+srv://ristovicmilos123:${password}@restaurantdata.okhorf4.mongodb.net/chesssite?retryWrites=true&w=majority&appName=chesssite`;
@@ -38,5 +40,5 @@ app.get('/api/answers', async (req, res) => {
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, '0.0.0.0', () => {
-    console.log(`Server is running on port ${PORT}`);
+    console.log(`Server is running on http://0.0.0.0:${PORT}`);
 });
