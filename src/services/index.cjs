@@ -38,14 +38,6 @@ app.get('/api/answers', async (req, res) => {
     }
 });
 
-// Serve static files from the React app's build folder
-app.use(express.static(path.join(__dirname, 'build')));
-
-// Handle any unmatched routes by serving the React app
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
-
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, '0.0.0.0', () => {
     console.log(`Server is running on http://0.0.0.0:${PORT}`);

@@ -1,3 +1,4 @@
+import React from 'react';
 import { CheckIcon } from '@heroicons/react/20/solid'
 import Header from '../components/Header'
 
