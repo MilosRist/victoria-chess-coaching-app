@@ -1,3 +1,4 @@
+import React from 'react';
 import ChessboardLogic from "./Chessboard";
 import Header from "./Header";
 
