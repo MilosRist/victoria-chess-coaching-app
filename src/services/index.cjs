@@ -24,12 +24,14 @@ app.get('/api/answers', async (req, res) => {
     }
 });
 
-// Serve static files from the React app build folder
-app.use(express.static(path.join(__dirname, 'build')));
+// Correct the path to ensure it's pointing to the right directory
+const buildPath = path.join(__dirname, '..', 'dist'); // Assuming the 'build' directory is at the project root
+
+app.use(express.static(buildPath));
 
 // Catch-all route to serve React's index.html for all other routes
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
 mongoose.set('strictQuery', false);
