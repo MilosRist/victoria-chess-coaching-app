@@ -18,16 +18,8 @@ app.use(
       },
     })
   );
-  
+
 app.use(express.static('public'));
-
-// Serve static files from the React app
-app.use(express.static(path.join(__dirname, 'build')));
-
-// Catch-all handler to return React's index.html for unknown routes
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
 
 const password = process.env.DB_PASSWORD || 'Misa862124';
 const url = `mongodb+srv://ristovicmilos123:${password}@restaurantdata.okhorf4.mongodb.net/chesssite?retryWrites=true&w=majority&appName=chesssite`;
