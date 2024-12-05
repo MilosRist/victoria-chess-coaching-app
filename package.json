@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "server": "json-server -p3001 --watch db.json",
-    "start": "node index.cjs"
+    "start": "node src/services/index.cjs"
   },
   "dependencies": {
     "@headlessui/react": "^2.1.10",
