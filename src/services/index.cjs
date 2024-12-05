@@ -2,12 +2,24 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const baseUrl = '/api/answers'
+const helmet = require('helmet');
 
 const app = express();
 app.use(cors()); // Allows cross-origin requests
 app.use(express.json());
-app.use(express.static('dist'))
 
+app.use(
+    helmet.contentSecurityPolicy({
+      directives: {
+        defaultSrc: ["'self'"],
+        imgSrc: ["'self'", "https://victoria-chess-coaching-app.onrender.com"],
+        scriptSrc: ["'self'"],
+        styleSrc: ["'self'"],
+      },
+    })
+  );
+  
+  app.use(express.static('public'));
 const password = process.env.DB_PASSWORD || 'Misa862124';
 const url = `mongodb+srv://ristovicmilos123:${password}@restaurantdata.okhorf4.mongodb.net/chesssite?retryWrites=true&w=majority&appName=chesssite`;
 
