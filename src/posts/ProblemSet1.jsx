@@ -9,7 +9,7 @@ const ProblemSet1 = () => {
         useEffect(() => {
             const fetchData = async () => {
                 try {
-                    const response = await fetch('http://localhost:3001/api/answers');
+                    const response = await fetch('https://victoria-chess-coaching-app.onrender.com/api/answers');
                     if (!response.ok) {
                         throw new Error('Network response was not ok');
                     }
