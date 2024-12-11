@@ -5,9 +5,10 @@ if (process.argv.length<3) {
   process.exit(1)
 }
 
-const password = process.env.DB_PASSWORD || 'Misa862124';
+require('dotenv').config( { path: '../.env' } );
 
-const url = `mongodb+srv://ristovicmilos123:${password}@restaurantdata.okhorf4.mongodb.net/?retryWrites=true&w=majority&appName=restaurantData`
+
+const url = process.env.MONGODB_URI;
 
 mongoose.set('strictQuery',false)
 

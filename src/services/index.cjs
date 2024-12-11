@@ -4,14 +4,16 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const baseUrl = '/api/answers'
 
+require('dotenv').config({ path: '../.env' });
+
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 app.use(cors()); // Allows cross-origin requests
 app.use(express.json());
 
-const password = process.env.DB_PASSWORD || 'Misa862124';
-const url = `mongodb+srv://ristovicmilos123:${password}@restaurantdata.okhorf4.mongodb.net/chesssite?retryWrites=true&w=majority&appName=chesssite`;
+const url = process.env.MONGODB_URI;
+console.log('MongoDB URI:', process.env.MONGODB_URI);
 
 // Define an API endpoint to get answers
 app.get('/api/answers', async (req, res) => {
