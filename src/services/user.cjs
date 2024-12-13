@@ -29,10 +29,12 @@ const userSchema = new mongoose.Schema({
   questions_answered: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Question'
+      ref: 'chessproblems'
     }
   ],
-})
+  },
+  { collection: 'users' }
+)
 
 userSchema.set('toJSON', {
   transform: (document, returnedObject) => {
@@ -45,5 +47,16 @@ userSchema.set('toJSON', {
 })
 
 const User = mongoose.model('User', userSchema)
+
+app.get('/api/users', async (req, res) => {
+  try {
+      const users = await User.find(); 
+      console.log(users); 
+      res.json(users); 
+  } catch (error) {
+      console.error('Error fetching users:', error); // Log any errors
+      res.status(500).json({ error: 'Failed to retrieve users' }); // Return error response if something goes wrong
+  }
+});
 
 module.exports = User
