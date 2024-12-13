@@ -35,9 +35,14 @@ usersRouter.post('/', async (request, response) => {
 });
 
 usersRouter.get('/', async (request, response) => {
-  const users = await User    
-  .find({}).populate('answers')
-  response.json(users)
-})
+  try {
+    const users = await User.find({}).populate('questions_answered');
+    response.json(users);
+  } catch (error) {
+    console.error('Error fetching users:', error);
+    response.status(500).json({ error: 'Failed to retrieve users' });
+  }
+});
+
 
 module.exports = usersRouter;
