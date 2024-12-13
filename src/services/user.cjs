@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
   questions_answered: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'chessproblems' 
+      ref: 'Answer' 
     }
   ],
 }, 
