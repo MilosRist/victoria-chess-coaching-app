@@ -1,5 +1,8 @@
+import React, { useEffect, useState } from 'react';
+
 import Header from '../components/Header'
 import PracticeProblem from '../components/PracticeProblem'
+
 import pawnmovement from '../assets/pawn-movement.png'
 import pawncapture from '../assets/pawn-capture.png'
 import bishopmovement from '../assets/bishop-movement.png'

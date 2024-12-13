@@ -4,22 +4,22 @@ const userSchema = new mongoose.Schema({
   username: {    
     type: String,    
     required: true,    
-    unique: true // ensures the uniqueness of username  
+    unique: true 
   },
   name: String,
   passwordHash: String,
   questions_answered: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'chessproblems' // Ensure this matches your related collection name
+      ref: 'chessproblems' 
     }
   ],
 }, 
 { 
-  collection: 'users' // Ensure it uses your "users" collection in MongoDB
+  collection: 'users' 
 });
 
-userSchema.set('toJSON', {
+/* userSchema.set('toJSON', {
   transform: (document, returnedObject) => {
     returnedObject.id = returnedObject._id.toString();
     delete returnedObject._id;
@@ -27,7 +27,7 @@ userSchema.set('toJSON', {
     // the passwordHash should not be revealed
     delete returnedObject.passwordHash;
   }
-});
+}); */
 
 const User = mongoose.model('User', userSchema);
 
