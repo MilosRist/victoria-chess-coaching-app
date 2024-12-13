@@ -5,6 +5,7 @@ const cors = require('cors');
 const baseUrl = '/api/answers'
 const usersRouter = require('../controllers/users.cjs'); // Adjust path if needed
 const User = require('./user.cjs');
+const Answer = require('./chessproblems.cjs')
 
 require('dotenv').config({ path: '../.env' });
 
@@ -21,15 +22,6 @@ mongoose.set('strictQuery', false);
 mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('Connected to MongoDB'))
     .catch(error => console.error('Error connecting to MongoDB:', error));
-
-const answerSchema = new mongoose.Schema({
-    id: Number,
-    answer: [String], 
-    opponent: [String],     
-    image: String,
-    text: String
-    }, { collection: 'chessproblems' });                     
-const Answer = mongoose.model('Answer', answerSchema);
 
 app.use('/api/users', usersRouter); // Add the user route
 
@@ -64,8 +56,5 @@ app.get('*', (req, res) => {
 app.listen(PORT, '0.0.0.0', () => {
     console.log(`Server is running on http://0.0.0.0:${PORT}`);
 });
-
-module.exports = Answer
-
 
 
