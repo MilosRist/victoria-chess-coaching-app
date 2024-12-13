@@ -2,10 +2,11 @@
 
 import React from 'react';
 import { Link } from "react-router-dom"
+import { useState } from 'react'
 import Header from '../components/Header'
+import Login from '../components/Login'
 
 const Hero = () => {
-
   return (
     <div className="bg-white">
       <Header />
@@ -42,6 +43,7 @@ const Hero = () => {
               </Link>
             </div>
           </div>
+            <Login />
         </div>
       </div>
     </div>

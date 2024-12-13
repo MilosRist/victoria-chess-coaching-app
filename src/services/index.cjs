@@ -9,13 +9,12 @@ require('dotenv').config({ path: '../.env' });
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-app.use(cors()); // Allows cross-origin requests
+app.use(cors()); 
 app.use(express.json());
 
 const url = process.env.MONGODB_URI;
 console.log('MongoDB URI:', process.env.MONGODB_URI);
 
-// Define an API endpoint to get answers
 app.get('/api/answers', async (req, res) => {
     try {
         const answers = await Answer.find().sort({ id: 1 });
@@ -26,12 +25,10 @@ app.get('/api/answers', async (req, res) => {
     }
 });
 
-// Correct the path to ensure it's pointing to the right directory
-const buildPath = path.join('dist'); // Assuming the 'build' directory is at the project root
+const buildPath = path.join('dist'); 
 
 app.use(express.static(buildPath));
 
-// Catch-all route to serve React's index.html for all other routes
 app.get('*', (req, res) => {
   res.sendFile(path.join('dist', 'index.html'));
 });
@@ -44,12 +41,15 @@ mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
     const answerSchema = new mongoose.Schema({
         id: Number,
         answer: [String], 
-        opponent: [String],      // add any additional fields here
+        opponent: [String],     
         image: String,
         text: String
-        }, { collection: 'chessproblems' });  // explicitly set the collection name
+        }, { collection: 'chessproblems' });  
                 
 const Answer = mongoose.model('Answer', answerSchema);
+
+const usersRouter = require('../controllers/users.cjs'); // Adjust path if needed
+app.use('/api/users', usersRouter); // Add the user route
 
 app.listen(PORT, '0.0.0.0', () => {
     console.log(`Server is running on http://0.0.0.0:${PORT}`);

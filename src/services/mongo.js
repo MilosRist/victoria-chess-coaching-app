@@ -17,10 +17,10 @@ mongoose.connect(url)
 const answerSchema = new mongoose.Schema({
   id: Number,
   answer: [String], 
-  opponent: [String],      // add any additional fields here
+  opponent: [String],      
   image: String,
   text: String
-  }, { collection: 'chessproblems' });  // explicitly set the collection name
+  }, { collection: 'chessproblems' });  
             
 const Answer = mongoose.model('Answer', answerSchema);
 
