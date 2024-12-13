@@ -1,6 +1,7 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
 const User = require('../services/user.cjs'); // Adjust path to where your User model is located
+const Answers = require('../services/chessproblems.cjs')
 
 const usersRouter = express.Router();
 
