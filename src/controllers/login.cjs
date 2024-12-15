@@ -20,6 +20,11 @@ loginRouter.post('/', async (request, response) => {
     })
   }
 
+  if (!process.env.SECRET) {
+    console.error('JWT secret is missing');
+    throw new Error('Server misconfiguration: missing JWT secret');
+  }
+
   const userForToken = {
     username: user.username,
     id: user._id,
