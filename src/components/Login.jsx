@@ -3,7 +3,6 @@
 import React from 'react';
 import { useState } from 'react'
 import loginService from '../services/login'
-const loginRouter = require('../controllers/login')
 
 const Login = () => {
   const [username, setUsername] = useState('')   
@@ -29,8 +28,6 @@ const Login = () => {
             }, 5000)    
         }
     }
-
-  app.use('/api/login', loginRouter)
 
   return (
     <div>
