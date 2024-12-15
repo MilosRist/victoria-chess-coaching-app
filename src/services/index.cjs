@@ -2,11 +2,10 @@ const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const baseUrl = '/api/answers'
 const usersRouter = require('../controllers/users.cjs'); // Adjust path if needed
 const User = require('./user.cjs');
 const Answer = require('./chessproblems.cjs')
-const loginRouter = require('../controllers/login.cjs');
+const loginRouter = require('../controllers/login');
 
 require('dotenv').config({ path: '../.env' });
 
@@ -28,8 +27,7 @@ app.use('/api/users', usersRouter); // Add the user route
 
 app.use('/api/login', loginRouter);
 
-const buildPath = path.resolve(__dirname, 'dist'); 
-
+const buildPath = path.join('dist'); 
 app.use(express.static(buildPath));
 
 app.get('/api/answers', async (req, res) => {
@@ -54,7 +52,7 @@ app.get('/api/users', async (req, res) => {
   });
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(buildPath, 'index.html'));
+  res.sendFile(path.join('dist', 'index.html'));
 });
 
 app.listen(PORT, '0.0.0.0', () => {
