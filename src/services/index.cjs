@@ -6,6 +6,7 @@ const baseUrl = '/api/answers'
 const usersRouter = require('../controllers/users.cjs'); // Adjust path if needed
 const User = require('./user.cjs');
 const Answer = require('./chessproblems.cjs')
+const loginRouter = require('../controllers/login');
 
 require('dotenv').config({ path: '../.env' });
 
@@ -24,6 +25,8 @@ mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
     .catch(error => console.error('Error connecting to MongoDB:', error));
 
 app.use('/api/users', usersRouter); // Add the user route
+
+app.use('/api/login', loginRouter);
 
 const buildPath = path.join('dist'); 
 app.use(express.static(buildPath));
