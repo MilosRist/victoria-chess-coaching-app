@@ -28,7 +28,8 @@ app.use('/api/users', usersRouter); // Add the user route
 
 app.use('/api/login', loginRouter);
 
-const buildPath = path.join('dist'); 
+const buildPath = path.resolve(__dirname, 'dist'); 
+
 app.use(express.static(buildPath));
 
 app.get('/api/answers', async (req, res) => {
@@ -53,7 +54,7 @@ app.get('/api/users', async (req, res) => {
   });
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join('dist', 'index.html'));
+  res.sendFile(path.join(buildPath, 'index.html'));
 });
 
 app.listen(PORT, '0.0.0.0', () => {
