@@ -6,7 +6,7 @@ const baseUrl = '/api/answers'
 const usersRouter = require('../controllers/users.cjs'); // Adjust path if needed
 const User = require('./user.cjs');
 const Answer = require('./chessproblems.cjs')
-const loginRouter = require('../controllers/login');
+const loginRouter = require('../controllers/login.cjs');
 
 require('dotenv').config({ path: '../.env' });
 
