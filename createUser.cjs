@@ -7,7 +7,7 @@ require('dotenv').config();
 const createUser = async () => {
   try {
     // Connect to MongoDB
-    const mongoUrl = "mongodb+srv://ristovicmilos123:Misa862124@restaurantdata.okhorf4.mongodb.net/chesssite?retryWrites=true&w=majority&appName=chesssite";
+    const mongoUrl = process.env.MONGODB_URI;
     await mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true });
     console.log('Connected to MongoDB');
 
