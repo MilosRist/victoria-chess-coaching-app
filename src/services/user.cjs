@@ -1,8 +1,6 @@
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
-  _id: String,
-  id: Number,
   username: {    
     type: String,    
     required: true,    
@@ -22,7 +20,10 @@ const userSchema = new mongoose.Schema({
 
  userSchema.set('toJSON', {
   transform: (document, returnedObject) => {
-    delete returnedObject.passwordHash;
+    returnedObject.id = returnedObject._id.toString(); // Convert _id to string
+    delete returnedObject._id; // Remove the original _id field
+    delete returnedObject.__v; // Remove the __v field
+    delete returnedObject.passwordHash; // Exclude hashed password from output
   }
 }); 
 
