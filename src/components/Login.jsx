@@ -37,12 +37,6 @@ const Login = () => {
 
   return (
     <div>
-      {errorMessage && (
-        <div className="text-red-600 text-center font-mono">{errorMessage}</div>
-      )}
-      {successMessage && (
-        <div className="text-green-600 text-center font-mono">{successMessage}</div>
-      )}
       <form
         onSubmit={handleLogin}
         className="mt-24 flex items-center justify-center gap-x-6"
@@ -78,6 +72,12 @@ const Login = () => {
           Login
         </button>
       </form>
+      {errorMessage && (
+        <div className="text-red-600 text-center font-mono">{errorMessage}</div>
+      )}
+      {successMessage && (
+        <div className="text-green-600 text-center font-mono">{successMessage}</div>
+      )}
     </div>
   );
 };
