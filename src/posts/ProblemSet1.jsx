@@ -5,27 +5,46 @@ import PracticeProblem from '../components/PracticeProblem'
 const ProblemSet1 = () => {
 
     const [answers, setAnswers] = useState([]); // State to hold fetched data
-        
-        useEffect(() => {
-            const fetchData = async () => {
-                try {
-                    const response = await fetch('https://victoria-chess-coaching-app.onrender.com/api/answers');
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    const data = await response.json();
-                    setAnswers(data); // Store data in state
-                } catch (error) {
-                    console.error('Error fetching data:', error);
-                }
-            };
-    
-            fetchData();
-        }, []);
+    const [user, setUser] = useState(null);
 
-        useEffect(() => {
-            console.log('Fetched answers:', answers);
-        }, [answers]);
+    useEffect(() => {
+        const fetchAnswers = async () => {
+            try {
+                const response = await fetch('https://victoria-chess-coaching-app.onrender.com/api/answers');
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const data = await response.json();
+                setAnswers(data); // Store answers in state
+            } catch (error) {
+                console.error('Error fetching answers:', error);
+            }
+        };
+
+        fetchAnswers();
+    }, []);
+
+    useEffect(() => {
+        const fetchUser = async () => {
+            const loggedUserJSON = window.localStorage.getItem('loggedUser');
+            if (loggedUserJSON) {
+                const user = JSON.parse(loggedUserJSON);
+                setUser(user);
+            } else {
+                console.warn('No logged-in user found.');
+            }
+        };
+
+        fetchUser();
+    }, []);
+
+    useEffect(() => {
+        console.log('Fetched answers:', answers);
+    }, [answers]);
+
+    useEffect(() => {
+        console.log('Fetched user:', user);
+    }, [user]);
 
     const userInput = ''
 
@@ -48,6 +67,7 @@ const ProblemSet1 = () => {
                         answerkey={answers}
                         userInput={userInput}
                         id={answers[index].id}
+                        user={user}
                     />
                     ))}
                     <p>This next series of checkmates are from positions taken from my blitz games! This will give you a better sense of how to spot checkmates in a real game scenario.</p>
@@ -58,6 +78,7 @@ const ProblemSet1 = () => {
                         answerkey={answers}
                         userInput={userInput}
                         id={problem.id}
+                        user={user}
                     />
                     ))}
                     <p>How about some checkmates delivered by a famous player? The following problems are from blitz games played by one of the greatest chess players of all time, Hikaru Nakamura.</p>
@@ -68,6 +89,7 @@ const ProblemSet1 = () => {
                         answerkey={answers}
                         userInput={userInput}
                         id={problem.id}
+                        user={user}
                     />
                     ))}
                     <h2 className="text-3xl font-mono">Back Rank Checkmates</h2>
@@ -80,6 +102,7 @@ const ProblemSet1 = () => {
                         answerkey={answers}
                         userInput={userInput}
                         id={problem.id}
+                        user={user}
                     />
                     ))}
                     <h2 className="text-3xl font-mono">Mate in 2</h2>
@@ -92,6 +115,7 @@ const ProblemSet1 = () => {
                         answerkey={answers}
                         userInput={userInput}
                         id={problem.id}
+                        user={user}
                     />
                     ))}
                     <h2 className="text-3xl font-mono">Pins</h2>
@@ -104,6 +128,7 @@ const ProblemSet1 = () => {
                         answerkey={answers}
                         userInput={userInput}
                         id={problem.id}
+                        user={user}
                     />
                     ))}
                     <h2 className="text-3xl font-mono">Forks</h2>
@@ -116,6 +141,7 @@ const ProblemSet1 = () => {
                         answerkey={answers}
                         userInput={userInput}
                         id={problem.id}
+                        user={user}
                     />
                     ))}
                 </div>

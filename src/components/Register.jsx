@@ -39,9 +39,7 @@ const Register = () => {
 
   return (
     <div>
-      <form onSubmit={handleRegister} className="mt-24 flex flex-col items-center gap-y-6">
-        {errorMessage && <div className="text-red-600">{errorMessage}</div>}
-        {successMessage && <div className="text-green-600">{successMessage}</div>}
+      <form onSubmit={handleRegister} className="mt-24 flex items-center gap-y-6">
         <div>
           <span className="text-sm font-semibold leading-6 text-gray-900 font-mono">Username</span>
           <input
@@ -92,6 +90,8 @@ const Register = () => {
         >
           Register
         </button>
+        {errorMessage && <div className="text-red-600">{errorMessage}</div>}
+        {successMessage && <div className="text-green-600">{successMessage}</div>}
       </form>
     </div>
   );
