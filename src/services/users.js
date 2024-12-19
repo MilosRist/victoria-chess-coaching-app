@@ -8,14 +8,14 @@ const getUser = async (userId) => {
 };
 
 
-const addQuestion = async (userId, questionId, token) => {
+const addQuestion = async (questionId, token) => {
     try {
         const response = await axios.post(
             '/api/users/add-question',
-            { questionId }, // Only send questionId in body
+            { questionId }, 
             {
                 headers: {
-                    Authorization: `Bearer ${token}`, // Include token in header
+                    Authorization: `Bearer ${token}`,
                 },
             }
         );
