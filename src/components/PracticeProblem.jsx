@@ -20,6 +20,7 @@ const PracticeProblem = (props) => {
     fetchCompletedQuestions();
     console.log('userId:', props.user.id);
     console.log('questionId:', props.id);
+    console.log('token:', props.user.token)
   }, [props.user]);
   
 
@@ -47,12 +48,12 @@ const PracticeProblem = (props) => {
     setInputs(Array(answers.length).fill(''));
     
   if (props.user && props.user.token) {
-    const decodedToken = jwtDecode(props.user.token); // Corrected jwt_decode usage
+    const decodedToken = jwtDecode(props.user.token); 
     const userId = decodedToken.iq;  
 
     if (!completedQuestions.includes(props.id)) {
       try {
-        const response = await userService.addQuestion(userId, props.id); // This sends the userId and questionId
+        const response = await userService.addQuestion(userId, props.id);
         setCompletedQuestions([...completedQuestions, props.id]);
       } catch (error) {
         console.error('Error adding question:', error.response?.data || error.message);
