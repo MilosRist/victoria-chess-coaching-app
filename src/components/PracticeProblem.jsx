@@ -11,11 +11,16 @@ const PracticeProblem = (props) => {
 
   useEffect(() => {
     const fetchCompletedQuestions = async () => {
-      const userData = await userService.getUser(props.user.id); 
-      setCompletedQuestions(userData.questions_answered);
+      if (props.user && props.user.id) {
+        const userData = await userService.getUser(props.user.id);
+        setCompletedQuestions(userData.questions_answered);
+      }
     };
     fetchCompletedQuestions();
-  }, [props.user.id]);
+    console.log('userId:', props.user.id);
+    console.log('questionId:', props.id);
+  }, [props.user]);
+  
 
   const handleInputChange = (index, event) => {
     event.preventDefault();
@@ -41,10 +46,15 @@ const PracticeProblem = (props) => {
     setInputs(Array(answers.length).fill(''));
 
     if (!completedQuestions.includes(props.id)) {
-      await userService.addQuestion(props.user.id, props.id); // Backend call
-      setCompletedQuestions([...completedQuestions, props.id]);
-    }
-  };
+      try {
+          const response = await userService.addQuestion(props.user.id, props.id); // This sends the userId and questionId
+          setCompletedQuestions([...completedQuestions, props.id]);
+      } catch (error) {
+          console.error('Error adding question:', error.response?.data || error.message);
+          setResponse('Failed to save the question. Please try again later.');
+      }
+  }
+};
 
   const showAnswer = (event) => {
     event.preventDefault();
