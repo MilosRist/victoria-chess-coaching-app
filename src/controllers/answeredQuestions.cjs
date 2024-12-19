@@ -7,7 +7,8 @@ const verifyToken = require('../middleware/verifyToken.cjs')
 
 addQuestionRouter.post('/add-question', verifyToken, async (req, res) => {
     try {
-        const userId = req.userId; // Retrieved from middleware
+        const userId = req.userId;
+        console.log(req.userId)
         const { questionId } = req.body;
 
         if (!userId || !questionId) {
