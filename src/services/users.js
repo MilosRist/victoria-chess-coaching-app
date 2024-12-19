@@ -9,14 +9,15 @@ const getUser = async (userId) => {
 
 const addQuestion = async (userId, questionId) => {
   try {
-    const response = await axios.post(`${baseUrl}/add-question`, {
+    console.log('Sending data to backend:', { userId, questionId });
+    const response = await axios.post(`/api/users/add-question`, {
       userId,
       questionId,
     });
     return response.data;
   } catch (error) {
     console.error('Error adding question:', error.response?.data || error.message);
-    throw error; // Handle this error in the component
+    throw error; 
   }
 };
 
