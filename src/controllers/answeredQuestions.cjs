@@ -1,3 +1,4 @@
+const mongoose = require('mongoose');
 const express = require('express');
 const addQuestionRouter = express.Router();
 const User = require('../services/user.cjs'); 
@@ -16,7 +17,7 @@ addQuestionRouter.post('/add-question', async (req, res) => {
             return res.status(404).json({ message: 'Answer not found.' });
         }
 
-        const user = await User.findById(userId);
+        const user = await User.findById(mongoose.Types.ObjectId(userId));
         if (!user) {
             return res.status(404).json({ message: 'User not found.' });
         }
