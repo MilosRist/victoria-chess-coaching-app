@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import userService from '../services/users'; 
+import { jwtDecode } from 'jwt-decode';
 
 const PracticeProblem = (props) => {
   const [response, setResponse] = useState('');
@@ -44,10 +45,13 @@ const PracticeProblem = (props) => {
 
     setResponse('Correct!');
     setInputs(Array(answers.length).fill(''));
+    
+    const decodedToken = jwtDecode(user.token);
+    const userId = decodedToken.iq;  
 
     if (!completedQuestions.includes(props.id)) {
       try {
-          const response = await userService.addQuestion(props.user.id, props.id); // This sends the userId and questionId
+          const response = await userService.addQuestion(userId, props.id); // This sends the userId and questionId
           setCompletedQuestions([...completedQuestions, props.id]);
       } catch (error) {
           console.error('Error adding question:', error.response?.data || error.message);
