@@ -7,18 +7,23 @@ const getUser = async (userId) => {
   return response.data;
 };
 
-const addQuestion = async (userId, questionId) => {
-  try {
-    console.log('Sending data to backend:', { userId, questionId });
-    const response = await axios.post(`/api/users/add-question`, {
-      userId,
-      questionId,
-    });
-    return response.data;
-  } catch (error) {
-    console.error('Error adding question:', error.response?.data || error.message);
-    throw error; 
-  }
+
+const addQuestion = async (userId, questionId, token) => {
+    try {
+        const response = await axios.post(
+            '/api/users/add-question',
+            { questionId }, // Only send questionId in body
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`, // Include token in header
+                },
+            }
+        );
+        return response.data;
+    } catch (error) {
+        console.error('Error adding question:', error.response?.data || error.message);
+        throw error;
+    }
 };
 
 export default { getUser, addQuestion };

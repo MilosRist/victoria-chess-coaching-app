@@ -3,10 +3,12 @@ const express = require('express');
 const addQuestionRouter = express.Router();
 const User = require('../services/user.cjs'); 
 const Answer = require('../services/chessproblems.cjs');
+const verifyToken = require('../middleware/verifyToken.cjs')
 
-addQuestionRouter.post('/add-question', async (req, res) => {
+addQuestionRouter.post('/add-question', verifyToken, async (req, res) => {
     try {
-        const { userId, questionId } = req.body;
+        const userId = req.userId; // Retrieved from middleware
+        const { questionId } = req.body;
 
         if (!userId || !questionId) {
             return res.status(400).json({ message: 'Missing required fields.' });
