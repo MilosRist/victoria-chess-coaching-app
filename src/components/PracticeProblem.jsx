@@ -48,12 +48,13 @@ const PracticeProblem = (props) => {
     setInputs(Array(answers.length).fill(''));
     
   if (props.user && props.user.token) {
+    const token = props.user.token
     const decodedToken = jwtDecode(props.user.token); 
     const userId = decodedToken.iq;  
 
     if (!completedQuestions.includes(props.id)) {
       try {
-        const response = await userService.addQuestion(userId, props.id);
+        const response = await userService.addQuestion(props.id, token);
         setCompletedQuestions([...completedQuestions, props.id]);
       } catch (error) {
         console.error('Error adding question:', error.response?.data || error.message);
