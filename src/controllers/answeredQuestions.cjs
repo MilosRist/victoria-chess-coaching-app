@@ -10,6 +10,7 @@ addQuestionRouter.post('/add-question', verifyToken, async (req, res) => {
         const userId = req.userId;
         console.log(req.userId)
         const { questionId } = req.body;
+        console.log(req.body)
 
         if (!userId || !questionId) {
             return res.status(400).json({ message: 'Missing required fields.' });
