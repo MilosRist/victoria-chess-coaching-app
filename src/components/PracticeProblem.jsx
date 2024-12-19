@@ -46,17 +46,22 @@ const PracticeProblem = (props) => {
     setResponse('Correct!');
     setInputs(Array(answers.length).fill(''));
     
-    const decodedToken = jwtDecode(user.token);
+  if (props.user && props.user.token) {
+    const decodedToken = jwtDecode(props.user.token); // Corrected jwt_decode usage
     const userId = decodedToken.iq;  
 
     if (!completedQuestions.includes(props.id)) {
       try {
-          const response = await userService.addQuestion(userId, props.id); // This sends the userId and questionId
-          setCompletedQuestions([...completedQuestions, props.id]);
+        const response = await userService.addQuestion(userId, props.id); // This sends the userId and questionId
+        setCompletedQuestions([...completedQuestions, props.id]);
       } catch (error) {
-          console.error('Error adding question:', error.response?.data || error.message);
-          setResponse('Failed to save the question. Please try again later.');
+        console.error('Error adding question:', error.response?.data || error.message);
+        setResponse('Failed to save the question. Please try again later.');
       }
+    }
+  } else {
+    console.error("User token is not available");
+    setResponse('Unable to retrieve user information.');
   }
 };
 
