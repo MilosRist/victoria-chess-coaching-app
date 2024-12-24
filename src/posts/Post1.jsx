@@ -241,11 +241,13 @@ const Post1 = () => {
                 <br></br>
                 <h2 className="text-3xl font-mono">Practice Problems</h2>
                 <br></br>
+                {/*
                 <PracticeProblem answerkey={answerkey} userInput={userInput} id={answerkey[0].id} />
                 <PracticeProblem answerkey={answerkey} userInput={userInput} id={answerkey[1].id} />
                 <PracticeProblem answerkey={answerkey} userInput={userInput} id={answerkey[2].id} />
                 <PracticeProblem answerkey={answerkey} userInput={userInput} id={answerkey[3].id} />
                 <PracticeProblem answerkey={answerkey} userInput={userInput} id={answerkey[4].id} />
+                */}
             </div>
             <div className="w-1/5 lg:block mr-20 ml-0 mt-40 text-lg hidden">
                 <p className='font-mono text-3xl'>Contents</p>
