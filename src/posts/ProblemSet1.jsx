@@ -63,8 +63,7 @@ const ProblemSet1 = () => {
                     <br></br>
                     {answers.length > 0 && [0, 1, 8].map((index) => (
                     <PracticeProblem
-                        key={answers[index]._id}
-                        idkey={answers[index]._id}   
+                        key={answers[index]._id}  
                         answerkey={answers}
                         userInput={userInput}
                         id={answers[index].id}
@@ -73,25 +72,23 @@ const ProblemSet1 = () => {
                     ))}
                     <p>This next series of checkmates are from positions taken from my blitz games! This will give you a better sense of how to spot checkmates in a real game scenario.</p>
                     <br></br>
-                    {answers.length > 0 && answers.slice(2, 8).map((index) => (
+                    {answers.length > 0 && answers.slice(2, 8).map((problem) => (
                     <PracticeProblem
-                        key={answers[index]._id}
-                        idkey={answers[index]._id}   
+                        key={problem.id}  
                         answerkey={answers}
                         userInput={userInput}
-                        id={answers[index].id}
+                        id={problem.id}
                         user={user}
                     />
                     ))}
                     <p>How about some checkmates delivered by a famous player? The following problems are from blitz games played by one of the greatest chess players of all time, Hikaru Nakamura.</p>
                     <br></br>
-                    {answers.length > 0 && answers.slice(9, 18).map((index) => (
+                    {answers.length > 0 && answers.slice(9, 18).map((problem) => (
                     <PracticeProblem
-                        key={answers[index]._id}
-                        idkey={answers[index]._id}   
+                        key={problem.id}
                         answerkey={answers}
                         userInput={userInput}
-                        id={answers[index].id}
+                        id={problem.id}
                         user={user}
                     />
                     ))}
@@ -99,13 +96,12 @@ const ProblemSet1 = () => {
                     <br></br>
                     <p>It is incredibly common to deliver checkmate on your last rank, referred to as the back rank. This is because the king usually stays on this back rank until the endgame. The following problems will all be based on this theme but include mates that take multiple moves and that may involve either edge of the board as well.</p>
                     <br></br>
-                    {answers.length > 0 && answers.slice(26, 37).map((index) => (
+                    {answers.length > 0 && answers.slice(26, 37).map((problem) => (
                     <PracticeProblem
-                        key={answers[index]._id}
-                        idkey={answers[index]._id}   
+                        key={problem.id} 
                         answerkey={answers}
                         userInput={userInput}
-                        id={answers[index].id}
+                        id={problem.id}
                         user={user}
                     />
                     ))}
@@ -113,13 +109,12 @@ const ProblemSet1 = () => {
                     <br></br>
                     <p>Now we can continue with general positions that involve a checkmate in 2 moves. A mate in 2 usually starts with an initial check followed by checkmate, although not always.</p>
                     <br></br>
-                    {answers.length > 0 && answers.slice(37, 41).map((index) => (
+                    {answers.length > 0 && answers.slice(37, 41).map((problem) => (
                     <PracticeProblem
-                        key={answers[index]._id}
-                        idkey={answers[index]._id}   
+                        key={problem.id}  
                         answerkey={answers}
                         userInput={userInput}
-                        id={answers[index].id}
+                        id={problem.id}
                         user={user}
                     />
                     ))}
@@ -127,13 +122,12 @@ const ProblemSet1 = () => {
                     <br></br>
                     <p>Pins are a key tactic for immobilizing enemy pieces which can iseally result in exchanging for a piece of greater value or delivering mate.</p>
                     <br></br>
-                    {answers.length > 0 && answers.slice(41, 44).map((index) => (
+                    {answers.length > 0 && answers.slice(41, 44).map((problem) => (
                     <PracticeProblem
-                        key={answers[index]._id}
-                        idkey={answers[index]._id}   
+                        key={problem.id}  
                         answerkey={answers}
                         userInput={userInput}
-                        id={answers[index].id}
+                        id={problem.id}
                         user={user}
                     />
                     ))}
@@ -141,13 +135,12 @@ const ProblemSet1 = () => {
                     <br></br>
                     <p>Forks are a fundemnetal tactic in chess because they allow you to threaten two pieces at the same time. Ideally, both of these pieces are of higher value than the forking piece or one piece is of higher value and the other is the king. This is because such a situation guarantees that you will win material. The following problems include forks with the bishop and the knight which are very common to deliver forks with and are typically the most lethal for beginners because they can fork any combination of the king, queen, and rooks to win material. In some situations though, forks can be used to simply to win a pawn but this can still be enough to win the game!</p>
                     <br></br>
-                    {answers.length > 0 && answers.slice(18, 26).map((index) => (
+                    {answers.length > 0 && answers.slice(18, 26).map((problem) => (
                     <PracticeProblem
-                        key={answers[index]._id}
-                        idkey={answers[index]._id}   
+                        key={problem.id} 
                         answerkey={answers}
                         userInput={userInput}
-                        id={answers[index].id}
+                        id={problem.id}
                         user={user}
                     />
                     ))}
