@@ -75,10 +75,11 @@ const ProblemSet1 = () => {
                     <br></br>
                     {answers.length > 0 && answers.slice(2, 8).map((problem) => (
                     <PracticeProblem
-                        key={problem.id}  
+                        key={answers[index]._id}
+                        idkey={answers[index]._id}   
                         answerkey={answers}
                         userInput={userInput}
-                        id={problem.id}
+                        id={answers[index].id}
                         user={user}
                     />
                     ))}
@@ -86,10 +87,11 @@ const ProblemSet1 = () => {
                     <br></br>
                     {answers.length > 0 && answers.slice(9, 18).map((problem) => (
                     <PracticeProblem
-                        key={problem.id}
+                        key={answers[index]._id}
+                        idkey={answers[index]._id}   
                         answerkey={answers}
                         userInput={userInput}
-                        id={problem.id}
+                        id={answers[index].id}
                         user={user}
                     />
                     ))}
@@ -99,10 +101,11 @@ const ProblemSet1 = () => {
                     <br></br>
                     {answers.length > 0 && answers.slice(26, 37).map((problem) => (
                     <PracticeProblem
-                        key={problem.id} 
+                        key={answers[index]._id}
+                        idkey={answers[index]._id}   
                         answerkey={answers}
                         userInput={userInput}
-                        id={problem.id}
+                        id={answers[index].id}
                         user={user}
                     />
                     ))}
@@ -112,10 +115,11 @@ const ProblemSet1 = () => {
                     <br></br>
                     {answers.length > 0 && answers.slice(37, 41).map((problem) => (
                     <PracticeProblem
-                        key={problem.id}  
+                        key={answers[index]._id}
+                        idkey={answers[index]._id}   
                         answerkey={answers}
                         userInput={userInput}
-                        id={problem.id}
+                        id={answers[index].id}
                         user={user}
                     />
                     ))}
@@ -125,10 +129,11 @@ const ProblemSet1 = () => {
                     <br></br>
                     {answers.length > 0 && answers.slice(41, 44).map((problem) => (
                     <PracticeProblem
-                        key={problem.id}  
+                        key={answers[index]._id}
+                        idkey={answers[index]._id}   
                         answerkey={answers}
                         userInput={userInput}
-                        id={problem.id}
+                        id={answers[index].id}
                         user={user}
                     />
                     ))}
@@ -138,10 +143,11 @@ const ProblemSet1 = () => {
                     <br></br>
                     {answers.length > 0 && answers.slice(18, 26).map((problem) => (
                     <PracticeProblem
-                        key={problem.id} 
+                        key={answers[index]._id}
+                        idkey={answers[index]._id}   
                         answerkey={answers}
                         userInput={userInput}
-                        id={problem.id}
+                        id={answers[index].id}
                         user={user}
                     />
                     ))}

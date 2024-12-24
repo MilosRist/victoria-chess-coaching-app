@@ -42,6 +42,48 @@ const Post1 = () => {
         {id: 4, answer: ['y'], opponent: [""], image: practiceproblem5, text: "5. Can white deliver mate? (y or n)"}
     ]
 
+    const [answers, setAnswers] = useState([]); 
+    const [user, setUser] = useState(null);
+    
+        useEffect(() => {
+            const fetchAnswers = async () => {
+                try {
+                    const response = await fetch('https://victoria-chess-coaching-app.onrender.com/api/answers');
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    const data = await response.json();
+                    setAnswers(data); 
+                } catch (error) {
+                    console.error('Error fetching answers:', error);
+                }
+            };
+    
+            fetchAnswers();
+        }, []);
+    
+        useEffect(() => {
+            const fetchUser = async () => {
+                const loggedUserJSON = window.localStorage.getItem('loggedUser');
+                if (loggedUserJSON) {
+                    const user = JSON.parse(loggedUserJSON);
+                    setUser(user);
+                } else {
+                    console.warn('No logged-in user found.');
+                }
+            };
+    
+            fetchUser();
+        }, []);
+    
+        useEffect(() => {
+            console.log('Fetched answers:', answers);
+        }, [answers]);
+    
+        useEffect(() => {
+            console.log('Fetched user:', user);
+        }, [user]);
+
     const userInput = ''
 
     return (
