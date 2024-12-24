@@ -63,7 +63,8 @@ const ProblemSet1 = () => {
                     <br></br>
                     {answers.length > 0 && [0, 1, 8].map((index) => (
                     <PracticeProblem
-                        key={answers[index]._id}  
+                        key={answers[index]._id}
+                        idkey={answers[index]._id}   
                         answerkey={answers}
                         userInput={userInput}
                         id={answers[index].id}
