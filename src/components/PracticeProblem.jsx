@@ -120,6 +120,9 @@ const PracticeProblem = (props) => {
         </form>
         <p className="font-mono">{response}</p>
         <p className="font-mono">{revealAnswer}</p>
+        {completedQuestions.includes(props.idkey) && (
+          <p className="font-mono">Correct!</p>
+        )}
       </div>
     </div>
   );
