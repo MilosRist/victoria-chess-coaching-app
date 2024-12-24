@@ -16,12 +16,12 @@ addQuestionRouter.post('/add-question', verifyToken, async (req, res) => {
             return res.status(400).json({ message: 'Missing required fields.' });
         }
 
-        const answer = await Answer.findById(mongoose.Types.ObjectId(questionId));
+        const answer = await Answer.findById(new mongoose.Types.ObjectId(questionId));
         if (!answer) {
             return res.status(404).json({ message: 'Answer not found.' });
         }
 
-        const user = await User.findById(mongoose.Types.ObjectId(userId));
+        const user = await User.findById(new mongoose.Types.ObjectId(userId));
         if (!user) {
             return res.status(404).json({ message: 'User not found.' });
         }
