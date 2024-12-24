@@ -52,10 +52,10 @@ const PracticeProblem = (props) => {
     const decodedToken = jwtDecode(props.user.token); 
     const userId = decodedToken.iq;  
 
-    if (!completedQuestions.includes(props.key)) {
+    if (!completedQuestions.includes(props.idkey)) {
       try {
-        const response = await userService.addQuestion(props.key, token);
-        setCompletedQuestions([...completedQuestions, props.key]);
+        const response = await userService.addQuestion(props.idkey, token);
+        setCompletedQuestions([...completedQuestions, props.idkey]);
       } catch (error) {
         console.error('Error adding question:', error.response?.data || error.message);
         setResponse('Failed to save the question. Please try again later.');
@@ -75,7 +75,7 @@ const PracticeProblem = (props) => {
   return (
     <div
       className={`flex mb-10 ${
-        completedQuestions.includes(props.key) ? 'bg-green-100' : 'bg-white'
+        completedQuestions.includes(props.idkey) ? 'bg-green-100' : 'bg-white'
       }`}
     >
       <div>
