@@ -16,7 +16,7 @@ addQuestionRouter.post('/add-question', verifyToken, async (req, res) => {
             return res.status(400).json({ message: 'Missing required fields.' });
         }
 
-        const answer = await Answer.findById(questionId);
+        const answer = await Answer.findById(mongoose.Types.ObjectId(questionId));
         if (!answer) {
             return res.status(404).json({ message: 'Answer not found.' });
         }
