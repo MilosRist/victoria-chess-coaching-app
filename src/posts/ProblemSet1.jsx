@@ -4,7 +4,7 @@ import PracticeProblem from '../components/PracticeProblem'
 
 const ProblemSet1 = () => {
 
-    const [answers, setAnswers] = useState([]); // State to hold fetched data
+    const [answers, setAnswers] = useState([]); 
     const [user, setUser] = useState(null);
 
     useEffect(() => {
@@ -15,7 +15,7 @@ const ProblemSet1 = () => {
                     throw new Error('Network response was not ok');
                 }
                 const data = await response.json();
-                setAnswers(data); // Store answers in state
+                setAnswers(data); 
             } catch (error) {
                 console.error('Error fetching answers:', error);
             }
@@ -63,7 +63,7 @@ const ProblemSet1 = () => {
                     <br></br>
                     {answers.length > 0 && [0, 1, 8].map((index) => (
                     <PracticeProblem
-                        key={answers[index].id}  // Ensure each component has a unique key
+                        key={answers[index]._id}  
                         answerkey={answers}
                         userInput={userInput}
                         id={answers[index].id}
@@ -74,7 +74,7 @@ const ProblemSet1 = () => {
                     <br></br>
                     {answers.length > 0 && answers.slice(2, 8).map((problem) => (
                     <PracticeProblem
-                        key={problem.id}  // Unique key for each problem
+                        key={problem.id}  
                         answerkey={answers}
                         userInput={userInput}
                         id={problem.id}
@@ -85,7 +85,7 @@ const ProblemSet1 = () => {
                     <br></br>
                     {answers.length > 0 && answers.slice(9, 18).map((problem) => (
                     <PracticeProblem
-                        key={problem.id}  // Unique key for each problem
+                        key={problem.id}
                         answerkey={answers}
                         userInput={userInput}
                         id={problem.id}
@@ -98,7 +98,7 @@ const ProblemSet1 = () => {
                     <br></br>
                     {answers.length > 0 && answers.slice(26, 37).map((problem) => (
                     <PracticeProblem
-                        key={problem.id}  // Unique key for each problem
+                        key={problem.id} 
                         answerkey={answers}
                         userInput={userInput}
                         id={problem.id}
@@ -111,7 +111,7 @@ const ProblemSet1 = () => {
                     <br></br>
                     {answers.length > 0 && answers.slice(37, 41).map((problem) => (
                     <PracticeProblem
-                        key={problem.id}  // Unique key for each problem
+                        key={problem.id}  
                         answerkey={answers}
                         userInput={userInput}
                         id={problem.id}
@@ -124,7 +124,7 @@ const ProblemSet1 = () => {
                     <br></br>
                     {answers.length > 0 && answers.slice(41, 44).map((problem) => (
                     <PracticeProblem
-                        key={problem.id}  // Unique key for each problem
+                        key={problem.id}  
                         answerkey={answers}
                         userInput={userInput}
                         id={problem.id}
@@ -137,7 +137,7 @@ const ProblemSet1 = () => {
                     <br></br>
                     {answers.length > 0 && answers.slice(18, 26).map((problem) => (
                     <PracticeProblem
-                        key={problem.id}  // Unique key for each problem
+                        key={problem.id} 
                         answerkey={answers}
                         userInput={userInput}
                         id={problem.id}

@@ -19,7 +19,7 @@ const PracticeProblem = (props) => {
     };
     fetchCompletedQuestions();
     console.log('userId:', props.user.id);
-    console.log('questionId:', props.id);
+    console.log('questionId:', props.key);
     console.log('token:', props.user.token)
   }, [props.user]);
   
