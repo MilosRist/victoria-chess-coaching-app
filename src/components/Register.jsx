@@ -39,8 +39,8 @@ const Register = () => {
 
   return (
     <div>
-      <form onSubmit={handleRegister} className="mt-24 flex items-center gap-y-6">
-        <div>
+      <form onSubmit={handleRegister} className="mt-24 sm:flex sm:items-center sm:gap-y-6 block text-center">
+        <div className='p-2'>
           <span className="text-sm font-semibold leading-6 text-gray-900 font-mono">Username</span>
           <input
             className="border-2 rounded-full border-black w-28 ml-2"
@@ -51,7 +51,7 @@ const Register = () => {
             required
           />
         </div>
-        <div>
+        <div className='p-2'>
           <span className="text-sm font-semibold leading-6 text-gray-900 font-mono">Email</span>
           <input
             className="border-2 rounded-full border-black w-28 ml-2"
@@ -62,7 +62,7 @@ const Register = () => {
             required
           />
         </div>
-        <div>
+        <div className='p-2'>
           <span className="text-sm font-semibold leading-6 text-gray-900 font-mono">Name</span>
           <input
             className="border-2 rounded-full border-black w-28 ml-2"
@@ -73,7 +73,7 @@ const Register = () => {
             required
           />
         </div>
-        <div>
+        <div className='p-2'>
           <span className="text-sm font-semibold leading-6 text-gray-900 font-mono">Password</span>
           <input
             className="border-2 rounded-full border-black w-28 ml-2"
@@ -93,6 +93,7 @@ const Register = () => {
         {errorMessage && <div className="text-red-600">{errorMessage}</div>}
         {successMessage && <div className="text-green-600">{successMessage}</div>}
       </form>
+      <p className='text-xs font-semibold leading-6 text-gray-400 font-mono mt-4'>- Password must be at least 6 characters long</p>
     </div>
   );
 };
