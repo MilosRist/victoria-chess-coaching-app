@@ -75,7 +75,8 @@ const ProblemSet1 = () => {
                     <br></br>
                     {answers.length > 0 && answers.slice(2, 8).map((problem) => (
                     <PracticeProblem
-                        key={problem.id}  
+                        key={problem.id}
+                        idkey={problem._id}  
                         answerkey={answers}
                         userInput={userInput}
                         id={problem.id}
