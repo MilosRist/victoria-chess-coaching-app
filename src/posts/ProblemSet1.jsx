@@ -88,6 +88,7 @@ const ProblemSet1 = () => {
                     {answers.length > 0 && answers.slice(9, 18).map((problem) => (
                     <PracticeProblem
                         key={problem.id}
+                        idkey={problem._id}  
                         answerkey={answers}
                         userInput={userInput}
                         id={problem.id}
@@ -101,6 +102,7 @@ const ProblemSet1 = () => {
                     {answers.length > 0 && answers.slice(26, 37).map((problem) => (
                     <PracticeProblem
                         key={problem.id} 
+                        idkey={problem._id}  
                         answerkey={answers}
                         userInput={userInput}
                         id={problem.id}
@@ -113,7 +115,8 @@ const ProblemSet1 = () => {
                     <br></br>
                     {answers.length > 0 && answers.slice(37, 41).map((problem) => (
                     <PracticeProblem
-                        key={problem.id}  
+                        key={problem.id} 
+                        idkey={problem._id}   
                         answerkey={answers}
                         userInput={userInput}
                         id={problem.id}
@@ -127,6 +130,7 @@ const ProblemSet1 = () => {
                     {answers.length > 0 && answers.slice(41, 44).map((problem) => (
                     <PracticeProblem
                         key={problem.id}  
+                        idkey={problem._id}  
                         answerkey={answers}
                         userInput={userInput}
                         id={problem.id}
@@ -140,6 +144,7 @@ const ProblemSet1 = () => {
                     {answers.length > 0 && answers.slice(18, 26).map((problem) => (
                     <PracticeProblem
                         key={problem.id} 
+                        idkey={problem._id}  
                         answerkey={answers}
                         userInput={userInput}
                         id={problem.id}
