@@ -1,5 +1,4 @@
 const express = require('express');
-const path = require('path');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const usersRouter = require('../controllers/users.cjs');
@@ -8,8 +7,8 @@ const Answer = require('./chessproblems.cjs')
 const loginRouter = require('../controllers/login.cjs');
 const registerRouter = require('../controllers/register.cjs')
 const addQuestionRouter = require('../controllers/answeredQuestions.cjs');
-const path = require('path');
-const __dirname = path.resolve();
+import path from 'path';
+import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
