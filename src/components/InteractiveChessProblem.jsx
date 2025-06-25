@@ -60,14 +60,20 @@ const InteractiveChessProblem = ({ problem, user, idkey }) => {
     if (user?.token && !completed) {
       try {
         const response = await userService.addQuestion(idkey, user.token);
-        // Check for successful response in data instead
-        if (response && response.success) { // or whatever success indicator your API uses
-          setCompleted(true);
-        } else {
-          console.error('Failed to mark question:', response?.message || 'No success flag');
-        }
+        
+        // Force immediate UI update
+        setCompleted(true);
+        setStatus('correct');
+        
+        // Optional: Refresh user data
+        const updatedUser = await userService.getUser(user.id);
+        console.log("Updated user:", updatedUser);
+        
       } catch (error) {
         console.error('Error:', error);
+        // Revert UI if failed
+        setCompleted(false);
+        setStatus('');
       }
     }
   };

@@ -8,6 +8,10 @@ const Answer = require('./chessproblems.cjs')
 const loginRouter = require('../controllers/login.cjs');
 const registerRouter = require('../controllers/register.cjs')
 const addQuestionRouter = require('../controllers/answeredQuestions.cjs');
+const path = require('path');
+const __dirname = path.resolve();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 require('dotenv').config({ path: path.resolve(__dirname, '../../.env') });
 
@@ -58,7 +62,7 @@ app.get('/api/users', async (req, res) => {
   });
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join('dist', 'index.html'));
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
 app.listen(PORT, '0.0.0.0', () => {
