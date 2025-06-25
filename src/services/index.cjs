@@ -7,10 +7,8 @@ const Answer = require('./chessproblems.cjs')
 const loginRouter = require('../controllers/login.cjs');
 const registerRouter = require('../controllers/register.cjs')
 const addQuestionRouter = require('../controllers/answeredQuestions.cjs');
-import path from 'path';
-import { fileURLToPath } from 'url';
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const path = require('path');
+const __dirname = path.resolve(); 
 
 require('dotenv').config({ path: path.resolve(__dirname, '../../.env') });
 
