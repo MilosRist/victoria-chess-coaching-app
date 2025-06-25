@@ -1,17 +1,18 @@
 import axios from 'axios';
+import config from '../config';
 
 const baseUrl = '/api/users';
 
 const getUser = async (userId) => {
-  const response = await axios.get(`${baseUrl}/${userId}`);
-  return response.data;
-};
+    const response = await axios.get(`${config.apiBaseUrl}/api/users/${userId}`);
+    return response.data;
+  };
 
 
 const addQuestion = async (questionId, token) => {
     try {
         const response = await axios.post(
-            '/api/users/add-question',
+            `${config.apiBaseUrl}/api/users/add-question`,
             { questionId }, 
             {
                 headers: {

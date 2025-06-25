@@ -9,7 +9,7 @@ const loginRouter = require('../controllers/login.cjs');
 const registerRouter = require('../controllers/register.cjs')
 const addQuestionRouter = require('../controllers/answeredQuestions.cjs');
 
-require('dotenv').config({ path: '../.env' });
+require('dotenv').config({ path: path.resolve(__dirname, '../../.env') });
 
 const app = express();
 const PORT = process.env.PORT || 3001;

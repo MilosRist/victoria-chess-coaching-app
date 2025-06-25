@@ -5,6 +5,7 @@ import { jwtDecode } from 'jwt-decode';
 const PracticeProblem = (props) => {
   const [response, setResponse] = useState('');
   const [completedQuestions, setCompletedQuestions] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const [revealAnswer, setRevealAnswer] = useState('');
   const [inputs, setInputs] = useState(Array(props.answerkey[props.id].answer.length).fill(''));
   const answers = props.answerkey[props.id].answer;
@@ -12,9 +13,17 @@ const PracticeProblem = (props) => {
 
   useEffect(() => {
     const fetchCompletedQuestions = async () => {
-      if (props.user && props.user.id) {
-        const userData = await userService.getUser(props.user.id);
-        setCompletedQuestions(userData.questions_answered);
+      setIsLoading(true);
+      try {
+        if (props.user && props.user.id) {
+          const userData = await userService.getUser(props.user.id);
+          setCompletedQuestions(userData.questions_answered || []);
+        }
+      } catch (error) {
+        console.error('Error fetching completed questions:', error);
+        setCompletedQuestions([]);
+      } finally {
+        setIsLoading(false);
       }
     };
     fetchCompletedQuestions();
@@ -75,7 +84,7 @@ const PracticeProblem = (props) => {
   return (
     <div
       className={`flex mb-10 ${
-        completedQuestions.includes(props.idkey) ? 'bg-green-100' : 'bg-white'
+        !isLoading && completedQuestions?.includes(props.idkey) ? 'bg-green-100' : 'bg-white'
       }`}
     >
       <div>
@@ -120,7 +129,7 @@ const PracticeProblem = (props) => {
         </form>
         <p className="font-mono">{response}</p>
         <p className="font-mono">{revealAnswer}</p>
-        {completedQuestions.includes(props.idkey) && (
+        {!isLoading && completedQuestions?.includes(props.idkey) && (
           <p className="font-mono">Correct!</p>
         )}
       </div>
